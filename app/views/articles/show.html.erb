@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <!-- Logo / Title on the Left -->
+      <a class="navbar-brand" href="#">Wikinimous</a>
+
+      <!-- "New Article" button on the Right -->
+      <div class="ms-auto">
+        <%= link_to "New Article", new_article_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+<div class="container mt-5">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <!-- Flexbox for title and buttons (compact layout) -->
+      <div class="d-flex justify-content-start align-items-center mb-2">
+        <!-- Article Title -->
+        <h1 class="card-title mb-0 me-2"><%= @article.title %></h1>
+
+        <%= link_to "<i class='fa-solid fa-pencil fa-3x'></i>".html_safe, edit_article_path(@article), class: "btn btn-warning btn-sm p-0" %>
+
+        <%= link_to "<i class='fa-solid fa-trash fa-3x'></i>".html_safe, @article, method: :delete, data: { confirm: 'Are you sure you want to delete this article?' }, class: "btn btn-danger btn-sm p-0 ms-2" %>
+      </div>
+
+      <!-- Article Content -->
+      <p class="card-text fs-5 mb-3"><%= @article.content %></p>
+
+      <!-- Back Button -->
+      <div class="d-flex gap-3">
+        <%= link_to "Back to list", articles_path, class: "btn btn-secondary btn-sm" %>
+      </div>
+    </div>
+  </div>
+</div>

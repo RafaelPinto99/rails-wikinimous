@@ -1,0 +1,31 @@
+<div class="container mt-4">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <!-- Logo / Title on the Left -->
+      <a class="navbar-brand" href="#">Wikinimous</a>
+
+      <!-- "New Article" button on the Right -->
+      <div class="ms-auto">
+        <%= link_to "New Article", new_article_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- Article List -->
+<div class="container mt-4">
+  <div class="list-group">
+    <% @articles.each do |article| %>
+      <div class="list-group-item d-flex justify-content-between align-items-center">
+        <!-- Link to Article Title -->
+        <%= link_to article.title, article_path(article), class: "text-decoration-none" %>
+
+        <!-- Link to Article Content (Optional, if you want to link the content as well) -->
+        <%= link_to "View Content", article_path(article), class: "btn btn-info btn-sm" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+</div>

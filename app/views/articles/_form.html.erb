@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h2 class="card-title mb-4">
+        <%= @article.new_record? ? "Add New article" : "Edit article" %>
+      </h2>
+
+      <%= form_with model: @article, local: true do |form| %>
+
+        <!-- Title Field -->
+        <div class="mb-3">
+          <%= form.label :title, class: "form-label" %>
+          <%= form.text_field :title, class: "form-control", placeholder: "Enter article title" %>
+        </div>
+
+        <!-- Content Field -->
+        <div class="mb-3">
+          <%= form.label :content, class: "form-label" %>
+          <%= form.text_area :content, class: "form-control", placeholder: "Enter article content" %>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="mt-4">
+          <%= form.submit "Save article", class: "btn btn-primary" %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>
